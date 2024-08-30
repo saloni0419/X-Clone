@@ -1,12 +1,20 @@
-import express from "express"
-import { login, logout, signup } from "../controllers/auth.controller.js"
+import express from "express";
+import {
+  getMe,
+  login,
+  logout,
+  signup,
+} from "../controllers/auth.controller.js";
+import { protectRoute } from "../middleware/protectRoute.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.post("/signup", signup) // function in controller 
+router.get("/me", protectRoute ,getMe); // this is a protected route
 
-router.post("/login", login)
+router.post("/signup", signup); // function in controller
 
-router.post("/logout", logout)
+router.post("/login", login);
 
-export default router
+router.post("/logout", logout);
+
+export default router;
