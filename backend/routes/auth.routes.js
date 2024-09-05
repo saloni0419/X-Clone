@@ -9,7 +9,7 @@ import { protectRoute } from "../middleware/protectRoute.js";
 
 const router = express.Router();
 
-router.get("/me", protectRoute ,getMe); // this is a protected route
+router.get("/me", protectRoute, getMe); // this is a protected route
 
 router.post("/signup", signup); // function in controller
 
