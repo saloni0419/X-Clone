@@ -52,6 +52,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    likedPosts: [
+      // each post will be refrence to the post model
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Post",
+        default: [], // by default user will not have any liked posts
+      },
+    ],
   },
   { timestamps: true }
 );
