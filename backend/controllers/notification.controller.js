@@ -22,7 +22,7 @@ export const deleteNotifications = async (req, res) => {
   try {
     const userId = req.user._id;
 
-    await Notification.deleteMany({ to: userId }); // send all notification send to us
+    await Notification.deleteMany({ to: userId }); // delete all notification send to us
 
     res.status(200).json({ message: "Notification deleted successfully" });
   } catch (error) {
