@@ -8,7 +8,7 @@ export const getUserProfile = async (req, res) => {
   const { username } = req.params; // 1- get username from params
 
   try {
-    const user = User.findOne({ username }).select("-password"); // 2- find the user
+    const user = await User.findOne({ username }).select("-password"); // 2- find the user
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
